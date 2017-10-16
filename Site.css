@@ -1,0 +1,21 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-style{
+    background: linear-gradient(to right, #14192d, #553e46, #b25d40); 
+}
+
+.color-white{
+	color: #fff;
+}
+
+.btn-color{
+	background-color: #151a2d;
+	color: #fff;
+}
+
+.btn-color:hover{
+	background-color: #392e3b;
+	color: #fff; /*Why not change when hover*/
+}
