@@ -42,10 +42,10 @@
 						<input type="text" class="form-control" id="username" placeholder="Username">
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" id="password" placeholder="Password">
+						<input type="password" class="form-control" id="password" placeholder="Password" onchange="myFunction()">
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" id="re-password" placeholder="Re-Password">
+						<input type="password" class="form-control" id="re-password" placeholder="Re-Password" onchange="myFunction()">
 					</div>
 					<div class="form-group">
 						<input type="text" class="form-control" id="nameAndLastname" placeholder="Name Lastname">
@@ -53,13 +53,7 @@
 					<div class="form-group">
 						<input type="text" class="form-control" id="email" placeholder="E-mail">
 					</div>
-					<div class="form-group">
-						<input type="radio"> Male &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="radio"> Female
-					</div>
-					<div class="form-group">
-						<input type="checkbox"> I Accept
-					</div>
+					
 					<div class="form-group">
 						<button type="submit" class="btn btn-block btn-color">Register</button>
 					</div>
@@ -69,6 +63,22 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	function myFunction(){
+		var _password = $("#password").val();
+		console.log(_rePassword);
+
+		var _rePassword = $("#re-password").val();
+		console.log(_password);
+
+		if (_password != _rePassword) {
+			document.getElementById("password").style.color = "#c00000";
+		}
+
+	}
+	
+</script>
 
 </body>
 </html>
