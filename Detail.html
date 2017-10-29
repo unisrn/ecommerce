@@ -21,7 +21,6 @@
 		border: 2px solid #eee;
 	}
 	.selected{
-		background: #eee;
 		border: 2px solid #eee;
 	}
 </style>
@@ -94,6 +93,10 @@
 		</div>
 
 		<script>
+			var nNew = 1;
+
+			$('#imgFocus_' + nNew).addClass('selected');
+
 			var slideIndex = 1;
 			showDivs(slideIndex);
 
@@ -103,7 +106,9 @@
 
 			function currentDiv(n) {
 				showDivs(slideIndex = n);
+				$('#imgFocus_' + nNew).removeClass('selected');
 				$('#imgFocus_' + n).addClass('selected');
+				nNew = n;
 			}
 
 			function showDivs(n) {
