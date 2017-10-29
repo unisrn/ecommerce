@@ -16,6 +16,14 @@
 	.demo {
 		cursor: pointer
 	}
+	.img-border:hover {
+		background: #eee;
+		border: 2px solid #eee;
+	}
+	.selected{
+		background: #eee;
+		border: 2px solid #eee;
+	}
 </style>
 </head>
 <body>
@@ -43,71 +51,77 @@
 		<ol class="breadcrumb" style="margin-top: 2%;">
 			<li><a href="#">Home</a></li>
 			<li><a href="#">Category</a></li>
-			<li><a href="#">Dress</a></li>
+			<li><a href="Menu.html">Dress</a></li>
 			<li class="active">Susana Monaco</li>
 		</ol>
 		<h1 class="text-center">Susana Monaco</h1>
 		<div class="row">
 			<div class="col-md-8">
 				<div class="row">
-					<div class="col-md-3">
-						small image
+					<div class="col-md-3 text-center">
+						<img class="demo w3-opacity w3-hover-opacity-off img-border" src="image/img1.jpg" style="width:45%; margin-top: 3%;" onclick="currentDiv(1)" id="imgFocus_1"><br>
+						<img class="demo w3-opacity w3-hover-opacity-off img-border" src="image/img11.jpg" style="width:45%; margin-top: 5%; margin-bottom: 5%;" onclick="currentDiv(2)" id="imgFocus_2"><br>
+						<img class="demo w3-opacity w3-hover-opacity-off img-border" src="image/img12.jpg" style="width:45%; margin-bottom: 5%;" onclick="currentDiv(3)" id="imgFocus_3"><br>
+						<img class="demo w3-opacity w3-hover-opacity-off img-border" src="image/img13.jpg" style="width:45%;" onclick="currentDiv(4)" id="imgFocus_4"><br>
 					</div>
-					<div class="col-md-9">
-						<div class="w3-content" style="max-width:1200px">
-							<img class="mySlides" src="img11.jpg" style="width:100%">
-							<img class="mySlides" src="img12.jpg" style="width:100%">
-							<img class="mySlides" src="img13.jpg" style="width:100%">
-
-							<div class="w3-row-padding w3-section">
-								<div class="w3-col s4">
-									<img class="demo w3-opacity w3-hover-opacity-off" src="img11.jpg" style="width:100%" onclick="currentDiv(1)">
-								</div>
-								<div class="w3-col s4">
-									<img class="demo w3-opacity w3-hover-opacity-off" src="img12.jpg" style="width:100%" onclick="currentDiv(2)">
-								</div>
-								<div class="w3-col s4">
-									<img class="demo w3-opacity w3-hover-opacity-off" src="img13.jpg" style="width:100%" onclick="currentDiv(3)">
-								</div>
-							</div>
-						</div>
+					<div class="col-md-9">							
+						<img class="mySlides text-center" src="image/img1.jpg" style="width: 80%;">
+						<img class="mySlides text-center" src="image/img11.jpg" style="width: 80%;">
+						<img class="mySlides text-center" src="image/img12.jpg" style="width: 80%;">
+						<img class="mySlides text-center" src="image/img13.jpg" style="width: 80%;">
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
-				data 
+				<h3 class="text-center">$198.00</h3>
+				<hr>
+				<p>Detail: </p>
+				<p>1. Billabong Women's Size Guide</p>
+				<p>2. Ebb and flow with the changing seasons in the Awoke For Waves Dress!</p>
+				<div class="dropdown text-center">
+					<button class="btn btn-default dropdown-toggle btn-block" type="button" data-toggle="dropdown">Choose size
+						<span class="caret" style="margin-left: 60%;"></span></button>
+						<ul class="dropdown-menu" style="width: 100%;">
+							<li><a href="#">S</a></li>
+							<li><a href="#">M</a></li>
+							<li><a href="#">L</a></li>
+							<li><a href="#">XL</a></li>
+						</ul>
+					</div>
+				</div>
+				<button type="button" class="btn btn-success btn-lg center-block" style="margin-top: 30%;">Add to cart&nbsp;&nbsp;<span class="glyphicon glyphicon-shopping-cart"></span></button>
 			</div>
 		</div>
-	</div>
 
-	<script>
-		var slideIndex = 1;
-		showDivs(slideIndex);
+		<script>
+			var slideIndex = 1;
+			showDivs(slideIndex);
 
-		function plusDivs(n) {
-			showDivs(slideIndex += n);
-		}
+			function plusDivs(n) {
+				showDivs(slideIndex += n);
+			}
 
-		function currentDiv(n) {
-			showDivs(slideIndex = n);
-		}
+			function currentDiv(n) {
+				showDivs(slideIndex = n);
+				$('#imgFocus_' + n).addClass('selected');
+			}
 
-		function showDivs(n) {
-			var i;
-			var x = document.getElementsByClassName("mySlides");
-			var dots = document.getElementsByClassName("demo");
-			if (n > x.length) {slideIndex = 1}
-				if (n < 1) {slideIndex = x.length}
-					for (i = 0; i < x.length; i++) {
-						x[i].style.display = "none";
+			function showDivs(n) {
+				var i;
+				var x = document.getElementsByClassName("mySlides");
+				var dots = document.getElementsByClassName("demo");
+				if (n > x.length) {slideIndex = 1}
+					if (n < 1) {slideIndex = x.length}
+						for (i = 0; i < x.length; i++) {
+							x[i].style.display = "none";
+						}
+						for (i = 0; i < dots.length; i++) {
+							dots[i].className = dots[i].className.replace("w3-opacity-off", "");
+						}
+						x[slideIndex-1].style.display = "block";
+						dots[slideIndex-1].className += " w3-opacity-off";
 					}
-					for (i = 0; i < dots.length; i++) {
-						dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
-					}
-					x[slideIndex-1].style.display = "block";
-					dots[slideIndex-1].className += " w3-opacity-off";
-				}
-	</script>
+				</script>
 
-</body>
-</html>
+			</body>
+			</html>
